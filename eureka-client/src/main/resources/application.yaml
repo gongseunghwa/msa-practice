@@ -1,11 +1,24 @@
-spring:
-  application:
-    name: eureka-client-example
+#spring:
+#  application:
+#    name: config
+#  profiles:
+#    active: dev
+#  config:
+#    import: optional:configserver:http://localhost:8888
+#  cloud:
+#    config:
+#      uri: http://localhost:8888
+#      name: test
 server:
   port: 8080
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://127.0.0.1:8761/eureka #Eureka Server
+
+management:
+  endpoint:
+    shutdown:
+      enabled: true
+
+spring:
+  config:
+    import:
+      - classpath:/config.yaml
+
